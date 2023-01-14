@@ -19,8 +19,13 @@ const BasicForm = () => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      email: "",
-      age: "",
+      capital: "",
+      largestcity: "",
+      NationalLanguage: "",
+      EthnicGroups: "",
+      population: "",
+      GDP: "",
+      currency: "",
       password: "",
       confirmPassword: "",
     },
@@ -32,28 +37,114 @@ const BasicForm = () => {
 
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
-      <label htmlFor="email">Email</label>
+      {/*select country*/}
+      <label htmlFor="country">country</label>
       <input
-        value={values.email}
+        value={values.country}
         onChange={handleChange}
-        id="email"
-        type="email"
-        placeholder="Enter your email"
+        id="country"
+        type="counrty"
+        placeholder="Enter your counrty"
         onBlur={handleBlur}
-        className={errors.email && touched.email ? "input-error" : ""}
+        className={errors.country && touched.country ? "input-error" : ""}
       />
-      {errors.email && touched.email && <p className="error">{errors.email}</p>}
-      <label htmlFor="age">Age</label>
+      {errors.country && touched.country && (
+        <p className="error">{errors.country}</p>
+      )}
+
+      {/*input capital city*/}
+      <label htmlFor="capital ">Capital city</label>
       <input
-        id="age"
+        id="capital "
+        type="capital"
+        placeholder="Enter the capital"
+        value={values.capitalcity}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        className={errors.capital && touched.capital ? "input-error" : ""}
+      />
+      {errors.capital && touched.capital && (
+        <p className="error">{errors.capital}</p>
+      )}
+
+      {/*largest city*/}
+      <label htmlFor="city">Lagest City</label>
+      <input
+        id="city"
+        type="city"
+        placeholder="Enter your city"
+        value={values.city}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        className={errors.city && touched.city ? "input-error" : ""}
+      />
+      {errors.city && touched.city && <p className="error">{errors.city}</p>}
+
+      {/*national language*/}
+      <label htmlFor="english">National Language</label>
+      <input
+        id="english"
+        type="english"
+        placeholder="Enter national langauage"
+        value={values.city}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        className={errors.city && touched.city ? "input-error" : ""}
+      />
+      {errors.city && touched.city && <p className="error">{errors.city}</p>}
+
+      {/*ethnic groups*/}
+      <label for="ethnic groups">Select ethnic groups:</label>
+      <select name="ethnic groups" id="ethnic-groups">
+        <option value="white">White</option>
+        <option value="black">Black</option>
+        <option value="Asian">Asian</option>
+        <option value="Latino">Latino</option>
+      </select>
+
+      {/*population */}
+      <label htmlFor="population">Total Population</label>
+      <input
+        id="population"
         type="number"
-        placeholder="Enter your age"
-        value={values.age}
+        placeholder="Enter total population"
+        value={values.population}
         onChange={handleChange}
         onBlur={handleBlur}
-        className={errors.age && touched.age ? "input-error" : ""}
+        className={errors.population && touched.population ? "input-error" : ""}
       />
-      {errors.age && touched.age && <p className="error">{errors.age}</p>}
+      {errors.population && touched.population && (
+        <p className="error">{errors.population}</p>
+      )}
+      {/*GDP */}
+      <label htmlFor="GDP">Total GDP</label>
+      <input
+        id="GDP"
+        type="number"
+        placeholder="Enter total GDP"
+        value={values.GDP}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        className={errors.GDP && touched.GDP ? "input-error" : ""}
+      />
+      {errors.GDP && touched.GDP && (
+        <p className="error">{errors.population}</p>
+      )}
+      {/*Currency */}
+      <label htmlFor="currency">Currency</label>
+      <input
+        id="currency"
+        type="currency"
+        placeholder="Enter currncy"
+        value={values.currency}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        className={errors.currency && touched.currency ? "input-error" : ""}
+      />
+      {errors.currency && touched.curremcy && (
+        <p className="error">{errors.currency}</p>
+      )}
+      {/*enter password*/}
       <label htmlFor="password">Password</label>
       <input
         id="password"
@@ -67,6 +158,7 @@ const BasicForm = () => {
       {errors.password && touched.password && (
         <p className="error">{errors.password}</p>
       )}
+      {/*confirm password*/}
       <label htmlFor="confirmPassword">Confirm Password</label>
       <input
         id="confirmPassword"
